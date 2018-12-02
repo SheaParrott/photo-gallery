@@ -1,5 +1,11 @@
 .App {
   text-align: center;
+  text-transform: uppercase;
+  height: 100vh;
+  background-image: linear-gradient(
+    rgba(0, 25, 250, 0.13),
+    rgba(235, 249, 255, 0.438)
+  );
 }
 
 .App-logo {
@@ -29,4 +35,34 @@
   to {
     transform: rotate(360deg);
   }
+}
+header {
+  background-color: rgba(6, 226, 255, 0.596);
+  font-size: 10vw;
+}
+div.headerMenu {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(6, 226, 255, 0.596);
+  text-decoration: overline;
+  font-size: 3vw;
+  padding-bottom: 10px;
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+}
+div.imageBox {
+  display: flex;
+  flex-direction: column;
+  width: 275px;
+  margin: 10px;
+  border: 1px solid black;
+}
+img {
+  width: 250px;
+  margin: 12.5px;
+  height: auto;
 }
