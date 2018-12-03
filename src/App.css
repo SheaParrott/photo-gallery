@@ -64,5 +64,10 @@ div.imageBox {
 img {
   width: 250px;
   margin: 12.5px;
-  height: auto;
+}
+a {
+  text-decoration: none;
+}
+p {
+  margin: 20px;
 }
