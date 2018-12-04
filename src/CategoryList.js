@@ -1,28 +1,24 @@
 import React, { Component } from 'react'
 import gallery from './gallery.json'
+import { Link } from 'react-router-dom'
 
 class CategoryList extends Component {
   render() {
     return (
       <main>
-        <div className="imageBox">
-          <a href="#">{gallery.pandas.title}</a>
-          <a href="#">
-            <img
-              src={gallery.pandas.photos[0].imageURL}
-              alt={gallery.pandas.title}
-            />
-          </a>
-        </div>
-        <div className="imageBox">
-          <a href="#">{gallery.miniatures.title}</a>
-          <a href="#">
-            <img
-              src={gallery.miniatures.photos[0].imageURL}
-              alt={gallery.miniatures.title}
-            />
-          </a>
-        </div>
+        {Object.keys(gallery).map(category => {
+          return (
+            <div key={category} className="imageBox">
+              <Link to={`/${category}`}>{gallery[category].title}</Link>
+              <Link to={`/${category}`}>
+                <img
+                  src={gallery[category].photos[0].imageURL}
+                  alt={gallery[category].title}
+                />
+              </Link>
+            </div>
+          )
+        })}
       </main>
     )
   }

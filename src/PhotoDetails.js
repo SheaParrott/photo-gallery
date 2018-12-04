@@ -3,15 +3,14 @@ import gallery from './gallery.json'
 
 class componentName extends Component {
   render() {
+    const CategoryData = gallery['pandas']
+    const PhotoIndex = 0
     return (
       <>
-        <h4>{gallery.pandas.title}</h4>
-        <p>
-          Pandas are bears native to south-central China, and are objectively
-          the cutest animals on earth.
-        </p>
-        <a href="https://codeburst.io/pandas-for-data-stuff-code-challenge-7972207a8294">
-          <img src="https://cdn-images-1.medium.com/max/1600/1*i1vVm3EqqDIkyucD0079wg.jpeg" />
+        <h4>{CategoryData.photos[PhotoIndex].title}</h4>
+        <p>{gallery.pandas.description}</p>
+        <a href={CategoryData.photos[PhotoIndex].sourceURL}>
+          <img src={CategoryData.photos[PhotoIndex].imageURL} />
         </a>
       </>
     )

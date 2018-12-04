@@ -4,31 +4,19 @@ import gallery from './gallery.json'
 import CategoryList from './CategoryList'
 import PhotoList from './PhotoList'
 import PhotoDetails from './PhotoDetails'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 class App extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      lyrics: '',
-      pandaImage: '',
-      pandaParagraph: '',
-      miniatureImage: '',
-      miniatureParagraph: ''
-    }
-  }
-
   render() {
     return (
-      <div className="App">
-        <header>Photo Gallery</header>
-        <div className="headerMenu">
-          <a href="#">home</a>
-        </div>
-        {/* <CategoryList /> */}
-        {/* <PhotoList /> */}
-        <PhotoDetails />
-      </div>
+      <Router>
+        <>
+          <header>Photo Gallery</header>
+          <Route exact path="/" component={CategoryList} />
+          <Route exact path="/pandas" component={PhotoList} />
+          <Route path="/pandas/1" component={PhotoDetails} />
+        </>
+      </Router>
     )
   }
 }
