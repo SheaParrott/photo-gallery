@@ -6,9 +6,9 @@ class CategoryList extends Component {
   render() {
     return (
       <main>
-        {Object.keys(gallery).map(category => {
+        {Object.keys(gallery).map((category, index) => {
           return (
-            <div key={category} className="imageBox">
+            <div key={index} className="imageBox">
               <Link to={`/${category}`}>{gallery[category].title}</Link>
               <Link to={`/${category}`}>
                 <img

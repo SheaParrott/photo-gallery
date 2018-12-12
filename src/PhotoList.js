@@ -1,18 +1,24 @@
 import React, { Component } from 'react'
 import gallery from './gallery.json'
-import CategoryList from './CategoryList.js'
+
+import { Link } from 'react-router-dom'
 
 class componentName extends Component {
   render() {
-    const CategoryData = gallery['pandas']
+    const category = this.props.match.params.category
+    const CategoryData = gallery[category]
     return (
       <>
-        {CategoryData.photos.map(photo => {
+        {CategoryData.photos.map((photo, index) => {
           return (
-            <a key={photo} href={photo.sourceURL}>
+            <Link key={index} to={`/${category}/${index}`}>
               <h4>{photo.title}</h4>
-              <img src={photo.imageURL} alt={photo.title} />
-            </a>
+              <img
+                className="photoDetails"
+                src={photo.imageURL}
+                alt={photo.title}
+              />
+            </Link>
           )
         })}
       </>
@@ -21,3 +27,19 @@ class componentName extends Component {
 }
 
 export default componentName
+// render() {
+//   console.log(this.props.match.params.category)
+// const category = this.props.match.params.category
+//   const CategoryData = gallery[category]
+//   return (
+//     <>
+//       {CategoryData.photos.map((photo, index) => {
+//         return (
+//           <Link to={`/${category}/index`}></Link>
+//             <h4 key={index}>{photo.title}</h4>
+//             <img src={photo.imageURL} alt={photo.title} />
+//         )
+//       })}
+//     </>
+//   )
+// }
